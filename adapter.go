@@ -87,14 +87,14 @@ func savePolicyLine(ptype string, rule []string) CasbinRule {
 }
 
 func (a *Adapter) dropTable() {
-	_, err := a.db.Exec(fmt.Sprintf("DELETE FROM `%s`", a.tableName))
+	_, err := a.db.Exec(fmt.Sprintf("DELETE FROM %s", a.tableName))
 	if err != nil {
 		panic(err)
 	}
 }
 
 func (a *Adapter) ensureTable() {
-	_, err := a.db.Exec(fmt.Sprintf("SELECT 1 FROM `%s` LIMIT 1", a.tableName))
+	_, err := a.db.Exec(fmt.Sprintf("SELECT 1 FROM %s LIMIT 1", a.tableName))
 	if err != nil {
 		panic(err)
 	}
@@ -172,7 +172,7 @@ func NewAdapterFromOptions(opts *AdapterOptions) *Adapter {
 // LoadPolicy loads policy from database.
 func (a *Adapter) LoadPolicy(model model.Model) error {
 	var lines []CasbinRule
-	err := a.db.Select(&lines, fmt.Sprintf("SELECT * FROM `%s`", a.tableName))
+	err := a.db.Select(&lines, fmt.Sprintf("SELECT * FROM %s", a.tableName))
 	if err != nil {
 		return err
 	}
@@ -257,7 +257,7 @@ func (a *Adapter) RemoveFilteredPolicy(sec string, ptype string, fieldIndex int,
 
 func (a *Adapter) rawDelete(line *CasbinRule) (err error) {
 	queryArgs := []interface{}{line.PType}
-	query := fmt.Sprintf("DELETE FROM `%s` WHERE p_type = ?", a.tableName)
+	query := fmt.Sprintf("DELETE FROM %s WHERE p_type = ?", a.tableName)
 	if line.V0 != "" {
 		query += " AND v0 = ?"
 		queryArgs = append(queryArgs, line.V0)
