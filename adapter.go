@@ -62,26 +62,33 @@ func loadPolicyLine(line CasbinRule, model model.Model) {
 	persist.LoadPolicyLine(lineText, model)
 }
 
+func spaceEmpty (value string) string {
+	if len(value) == 0 {
+		return " "
+	}
+	return value
+}
+
 func savePolicyLine(ptype string, rule []string) CasbinRule {
 	line := CasbinRule{}
 	line.PType = ptype
 	if len(rule) > 0 {
-		line.V0 = rule[0]
+		line.V0 = spaceEmpty(rule[0])
 	}
 	if len(rule) > 1 {
-		line.V1 = rule[1]
+		line.V1 = spaceEmpty(rule[1])
 	}
 	if len(rule) > 2 {
-		line.V2 = rule[2]
+		line.V2 = spaceEmpty(rule[2])
 	}
 	if len(rule) > 3 {
-		line.V3 = rule[3]
+		line.V3 = spaceEmpty(rule[3])
 	}
 	if len(rule) > 4 {
-		line.V4 = rule[4]
+		line.V4 = spaceEmpty(rule[4])
 	}
 	if len(rule) > 5 {
-		line.V5 = rule[5]
+		line.V5 = spaceEmpty(rule[5])
 	}
 	return line
 }
