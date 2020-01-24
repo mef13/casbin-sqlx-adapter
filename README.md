@@ -1,11 +1,13 @@
 # casbin-sqlx-adapter
+### This is fork of the original project [casbin-sqlx-adapter](https://github.com/memwey/casbin-sqlx-adapter)
+
 sqlx adapter for Casbin https://github.com/casbin/casbin
 
-Based on [sqlx](https://github.com/jmoiron/sqlx), and tested in [MySQL](https://github.com/go-sql-driver/mysql).
+Based on [sqlx](https://github.com/jmoiron/sqlx), and tested in [MySQL](https://github.com/go-sql-driver/mysql) and [Postgres](https://github.com/lib/pq).
 
 ## Installation
 
-    go get github.com/memwey/casbin-sqlx-adapter
+    go get github.com/mef13/casbin-sqlx-adapter
 
 ## Usage example
 
@@ -36,16 +38,7 @@ In my opinion, in a general PRODUCTION environment, the business code can rarely
 
 ## Thank
 
-Special thanks to [Casbin](https://github.com/casbin). They provide a superb authorization library.
-
-Special thanks to [sqlx](https://github.com/jmoiron/sqlx). It provides a brilliant set of extensions on go's standard `database/sql` library.
-
-And this project is inspected by [Xorm Adapter](https://github.com/casbin/xorm-adapter), [Gorm Adapter](https://github.com/casbin/gorm-adapter), [Beego ORM Adapter](https://github.com/casbin/beego-orm-adapter) and [MySQL adapter
-](https://github.com/casbin/mysql-adapter). Thanks all of them.
-
-## Others
-
-This is a very first opensource of me and if this project violates any of the opensource guidelines, please contact me. The project is far from perfect, issues and pull requesets are very welcome. 
+Thanks to [casbin-sqlx-adapter](https://github.com/memwey/casbin-sqlx-adapter) for his original project.
 
 ## License
 
